@@ -43,7 +43,7 @@
                 <div class="tab-content">
                     <div id="newEntry" class="tab-pane fade in active">
                         <div class="container">
-                            <form role="form" class="form-horizontal" action="../server/main.php" method="post">
+                            <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2">
                                         <?php echo $result; ?>
@@ -78,15 +78,7 @@
                                     <div class="col-lg-8 col-md-8">
                                         <select class="form-control" name="typofwork" required>
                                             <option>Choose an option...</option>
-                                            <option>MSc-Thesis</option>
-                                            <option>MSc-Proposal</option>
-                                            <option>BSc-Thesis</option>
-                                            <option>Dissertation</option>
-                                            <option>Miniforsch.</option>
-                                            <option>Project-Proposal</option>
-                                            <option>Diplom-Arbeit</option>
-                                            <option>Forsch.arb.</option>
-                                            <option>Research project</option>
+                                            <option ng-repeat="x in tow" value="{{x.work}}">{{x.work}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -95,13 +87,7 @@
                                     <div class="col-lg-8 col-md-8">
                                         <select  class="form-control" name="foerderung" required>
                                             <option>Choose an option...</option>
-                                            <option>Keine</option>
-                                            <option>SFB 634</option>
-                                            <option>BMBF</option>
-                                            <option>DFG</option>
-                                            <option>HIC for FAIR</option>
-                                            <option>EMMI</option>
-                                            <option>Other</option>
+                                            <option ng-repeat="y in foerd" value="{{y.foer}}">{{y.foer}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -110,26 +96,7 @@
                                     <div class="col-lg-8 col-md-8">
                                         <select  class="form-control" name="tp" required>
                                             <option>Choose an option...</option>
-                                            <option>None</option>
-                                            <option>A1</option>
-                                            <option>A2</option>
-                                            <option>B1</option>
-                                            <option>B2</option>
-                                            <option>B3</option>
-                                            <option>B4</option>
-                                            <option>C1</option>
-                                            <option>C2</option>
-                                            <option>C3</option>
-                                            <option>C4</option>
-                                            <option>D1</option>
-                                            <option>D2</option>
-                                            <option>D3</option>
-                                            <option>D4</option>
-                                            <option>E1</option>
-                                            <option>E2</option>
-                                            <option>E3</option>
-                                            <option>E4</option>
-                                            <option>E5</option>
+                                            <option ng-repeat="z in tp" value="{{z.typ}}">{{z.typ}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -214,25 +181,7 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <div class="modal fade" id="myModal" role="dialog" >
-                                <div class="modal-dialog">
 
-                                    <!-- Modal content-->
-                                    <div class="modal-content" >
-                                        <div class="modal-header" ng-model="showData">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title" >Update Information for entry id:{{showData.Sno}} </h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Some text in the modal.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
 
                     </div>
