@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IKP-Management </title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="../scripts/js/control.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="myApp" >
+    <div class="container-fluid"><!--main body container-->
+        <div class="row-fluid"><!--header-->
+            <div class="page-header">
+                    <h3>IKP - Publication Management System</h3>
+            </div>
+        </div>
+        <div class="row"><!--Nav + body content-->
+            <div class="col-md-2 col-lg-2 navbg">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a data-toggle="tab" href="#newEntry">New Entry</a></li>
+                    <li><a data-toggle="tab" href="#viewEntries">View</a></li>
+                    <li><a data-toggle="tab" href="#modifyEntries">Modify</a></li>
+
+                </ul>
+            </div>
+            <div class="col-mg-10 col-lg-10">
+                <div class="tab-content">
+                    <div id="newEntry" class="tab-pane fade in active">
+                        <div class="container">
+                            <form role="form" class="form-horizontal" action="../server/main.php" method="post">
+                                <div class="form-group">
+                                    <div class="col-sm-10 col-sm-offset-2">
+                                        <?php echo $result; ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Name:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="lname" placeholder="Enter Last Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >First name:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="fname" placeholder="Enter First name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Betreuer:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="betreuer" placeholder="Enter betreuer's name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >End date:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="date" class="form-control" name="enddate" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Type of work:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <select class="form-control" name="typofwork" required>
+                                            <option>Choose an option...</option>
+                                            <option>MSc-Thesis</option>
+                                            <option>MSc-Proposal</option>
+                                            <option>BSc-Thesis</option>
+                                            <option>Dissertation</option>
+                                            <option>Miniforsch.</option>
+                                            <option>Project-Proposal</option>
+                                            <option>Diplom-Arbeit</option>
+                                            <option>Forsch.arb.</option>
+                                            <option>Research project</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Förderung:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <select  class="form-control" name="foerderung" required>
+                                            <option>Choose an option...</option>
+                                            <option>Keine</option>
+                                            <option>SFB 634</option>
+                                            <option>BMBF</option>
+                                            <option>DFG</option>
+                                            <option>HIC for FAIR</option>
+                                            <option>EMMI</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >TP:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <select  class="form-control" name="tp" required>
+                                            <option>Choose an option...</option>
+                                            <option>None</option>
+                                            <option>A1</option>
+                                            <option>A2</option>
+                                            <option>B1</option>
+                                            <option>B2</option>
+                                            <option>B3</option>
+                                            <option>B4</option>
+                                            <option>C1</option>
+                                            <option>C2</option>
+                                            <option>C3</option>
+                                            <option>C4</option>
+                                            <option>D1</option>
+                                            <option>D2</option>
+                                            <option>D3</option>
+                                            <option>D4</option>
+                                            <option>E1</option>
+                                            <option>E2</option>
+                                            <option>E3</option>
+                                            <option>E4</option>
+                                            <option>E5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Title:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="title" placeholder="Enter Title" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-default">Cancel</button>
+                                    </div>
+                                </div>
+
+
+
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- Viewing-->
+                    <div id="viewEntries" class="tab-pane fade">
+                        <form class="form" role="form"> <!-- search field(incomplete) size="78"-->
+
+                            <div class="form-group ">
+                                <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="pubSearch">
+                            </div>
+
+                        </form>
+                        <div class="table-responsive">
+                            <table class="table table-hover" ng-controller = "pubController">
+                                <thead>
+                                <tr>
+                                    <th>Sno</th>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Type of Work</th>
+                                    <th>Title</th>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <tr ng-repeat="entry in entries | filter: pubSearch">
+                                    <td>{{entry.Sno}}</td>
+                                    <td>{{entry.firstName}}</td>
+                                    <td>{{entry.lastName}}</td>
+                                    <td>{{entry.typeofWork}}</td>
+                                    <td>{{entry.Title}}</td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- Modifying-->
+                    <div id="modifyEntries" class="tab-pane fade">
+                        <div class="table-responsive" ng-controller = "pubmodController">
+                            <div class="form-group ">
+                                <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="pubSearch">
+                            </div>
+                            <table class="table table-hover" >
+                                <thead>
+                                <tr>
+                                    <th>Sno</th>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Type of Work</th>
+                                    <th>Title</th>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <!--<tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "rowClick(entry);">-->
+                                <tr ng-repeat="entry in entries | filter: pubSearch" data-toggle="modal" data-target="#myModal" ng-click = "rowClick(entry);">
+                                    <td>{{entry.Sno}}</td>
+                                    <td>{{entry.firstName}}</td>
+                                    <td>{{entry.lastName}}</td>
+                                    <td>{{entry.typeofWork}}</td>
+                                    <td>{{entry.Title}}</td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="modal fade" id="myModal" role="dialog" >
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content" >
+                                        <div class="modal-header" ng-model="showData">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title" >Update Information for entry id:{{showData.Sno}} </h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Some text in the modal.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="row"><!--footer-->
+            <nav class="navbar navbar-inverse navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h4 class="navbar-brand">All rights reserved @ Institut für kern physik</h4>
+                    </div>
+                </div>
+            </nav>
+
+
+        </div>
+    </div>
+
+</body>
+</html>

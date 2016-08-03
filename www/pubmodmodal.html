@@ -1,0 +1,83 @@
+
+    <div class="modal-header">
+        <h3 class="modal-title">Entry No: {{items.Sno}} </h3>
+    </div>
+    <div class="modal-body" ng-controller="pubmodController">
+        <form role="form" class="form-horizontal" action="../server/update.php" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Name:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="hidden" class="form-control" name="sno"  value="{{items.Sno}}">
+                    <input type="text" class="form-control" name="lname"  value="{{items.lastName}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >First name:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="fname" value="{{items.firstName}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Betreuer:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="betreuer" value="{{items.Betreuer}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >End date:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="date" class="form-control" name="enddate" value="{{items.endDate}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Type of work:</label>
+                <div class="col-lg-8 col-md-8">
+                    <select class="form-control" name="typofwork" ng-model="items.typeofWork" required>
+                        <option>Choose an option...</option>
+                        <option value="{{val.type}}" ng-repeat="val in typofwork" >{{val.type}}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Förderung:</label>
+                <div class="col-lg-8 col-md-8">
+                    <select  class="form-control" name="foerderung" ng-model="items.Foerderung" required>
+                        <option>Choose an option...</option>
+                        <option value="{{foerd.type}}" ng-repeat="foerd in foerderung">{{foerd.type}}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >TP:</label>
+                <div class="col-lg-8 col-md-8">
+                    <select  class="form-control" name="tp" ng-model="items.Tp" required>
+                        <option>Choose an option...</option>
+                        <option value="{{t.type}}" ng-repeat="t in tp">{{t.type}}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Title:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{items.Title}}" required>
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<div class="col-sm-offset-2 col-sm-10">-->
+                    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit" >Update</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+
+
+        </form>
+
+    </div>
+
