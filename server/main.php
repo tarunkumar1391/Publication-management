@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO publications (fname, lname, betreuer, enddate, typofwork, foerderung, tp, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssssss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title);
 
 function test_input($data) {

@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IKP-Management </title>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../scripts/js/angular.min.js"></script>
+    <script src="../scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
+    <script src="../scripts/js/angular-animate.min.js"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
     <script src="../scripts/js/control.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../scripts/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="myApp" >
     <div class="container-fluid"><!--main body container-->
@@ -133,8 +131,8 @@
                                 <thead>
                                 <tr>
                                     <th>Sno</th>
-                                    <th>Firstname</th>
                                     <th>Lastname</th>
+                                    <th>Firstname</th>
                                     <th>Type of Work</th>
                                     <th>Title</th>
                                 </tr>
@@ -142,8 +140,8 @@
                                 <tbody >
                                 <tr ng-repeat="entry in entries | filter: pubSearch">
                                     <td>{{entry.Sno}}</td>
-                                    <td>{{entry.firstName}}</td>
                                     <td>{{entry.lastName}}</td>
+                                    <td>{{entry.firstName}}</td>
                                     <td>{{entry.typeofWork}}</td>
                                     <td>{{entry.Title}}</td>
 
@@ -163,15 +161,15 @@
                                 <thead>
                                 <tr>
                                     <th>Sno</th>
+                                    <th>Lastname </th>
                                     <th>Firstname</th>
-                                    <th>Lastname</th>
                                     <th>Type of Work</th>
                                     <th>Title</th>
                                 </tr>
                                 </thead>
                                 <tbody >
                                 <!--<tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "rowClick(entry);">-->
-                                <tr ng-repeat="entry in entries | filter: pubSearch" data-toggle="modal" data-target="#myModal" ng-click = "rowClick(entry);">
+                                <tr ng-repeat="entry in entries | filter: pubSearch" data-toggle="modal" data-target="#myModal" ng-click = "open('lg');">
                                     <td>{{entry.Sno}}</td>
                                     <td>{{entry.firstName}}</td>
                                     <td>{{entry.lastName}}</td>

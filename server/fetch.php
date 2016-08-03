@@ -15,9 +15,9 @@ $result = $conn->query("SELECT * FROM publications");
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "") {$outp .= ",";}
-    $outp .= '{"Sno":"'  . $rs["s.no"] . '",';
-    $outp .= '"firstName":"'  . $rs["fname"] . '",';
+    $outp .= '{"Sno":"'  . $rs["sno"] . '",';
     $outp .= '"lastName":"'  . $rs["lname"] . '",';
+    $outp .= '"firstName":"'  . $rs["fname"] . '",';
     $outp .= '"Betreuer":"'   . $rs["betreuer"] . '",';
     $outp .= '"endDate":"'. $rs["enddate"] . '",';
     $outp .= '"typeofWork":"'. $rs["typofwork"] . '",';
