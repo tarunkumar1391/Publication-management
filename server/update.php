@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare("UPDATE publications SET lname=?, fname=?,  betreuer=?, enddate=?, typofwork=?, foerderung=?, tp=?, title=? WHERE sno=?");
 $stmt->bind_param("ssssssssi", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$sno);
 
-function test_input($data) {
+function input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -26,15 +26,15 @@ function test_input($data) {
 
 // set parameters and execute
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $sno = isset($_POST['sno']) ? $_POST['sno'] : "0";
-    $lname = isset($_POST['lname']) ? $_POST['lname'] : "0";
-    $fname = isset($_POST['fname']) ? $_POST['fname'] : "0";
-    $betreuer = isset($_POST['betreuer']) ? $_POST['betreuer'] : "0";
-    $enddate = isset($_POST['enddate']) ? $_POST['enddate'] : "0";
-    $typofwork = isset($_POST['typofwork']) ? $_POST['typofwork'] : "0";
-    $foerderung = isset($_POST['foerderung']) ? $_POST['foerderung'] : "0";
-    $tp = isset($_POST['tp']) ? $_POST['tp'] : "0";
-    $title = isset($_POST['title']) ? $_POST['title'] : "0";
+    $sno = isset($_POST['sno']) ? input($_POST['sno']) : "0";
+    $lname = isset($_POST['lname']) ? input($_POST['lname']) : "0";
+    $fname = isset($_POST['fname']) ? input($_POST['fname']) : "0";
+    $betreuer = isset($_POST['betreuer']) ? input($_POST['betreuer']) : "0";
+    $enddate = isset($_POST['enddate']) ? input($_POST['enddate']) : "0";
+    $typofwork = isset($_POST['typofwork']) ? input($_POST['typofwork']) : "0";
+    $foerderung = isset($_POST['foerderung']) ? input($_POST['foerderung']) : "0";
+    $tp = isset($_POST['tp']) ? input($_POST['tp']) : "0";
+    $title = isset($_POST['title']) ? input($_POST['title']) : "0";
 
 
 
