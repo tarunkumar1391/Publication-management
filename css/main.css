@@ -4,3 +4,8 @@
     border-bottom: solid;
     border-right: dashed;
 }
+body {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 10%;
+}

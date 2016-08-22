@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "ikp";
 //define variables
-$lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = "";
+$lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $file =  $file_size = $file_type = "";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,8 +14,9 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title);
+$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, submission, fileSize, fileType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 
+                        ?, ?, ?)");
+$stmt->bind_param("sssssssssis", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title, $file, $file_size, $file_type  );
 
 function input($data) {
     $data = trim($data);
@@ -35,6 +36,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $tp = isset($_POST['tp']) ? input($_POST['tp']) : "0";
     $title = isset($_POST['title']) ? input($_POST['title']) : "0";
 
+    $file = rand(1000,100000)."-".$_FILES['fileSubmission']['name'];
+    $file_loc = $_FILES['fileSubmission']['tmp_name'];
+    $file_size = $_FILES['fileSubmission']['size'];
+    $file_type = $_FILES['fileSubmission']['type'];
+    $destination="uploads/".$file;
+    echo getcwd();
+    move_uploaded_file($file_loc, $destination );
 
 
 }

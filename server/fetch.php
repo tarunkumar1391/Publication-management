@@ -23,7 +23,9 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"typeofWork":"'. $rs["typofwork"] . '",';
     $outp .= '"Foerderung":"'. $rs["foerderung"] . '",';
     $outp .= '"Tp":"'. $rs["tp"] . '",';
-    $outp .= '"Title":"'. $rs["title"] . '"}';
+    $outp .= '"Title":"'. $rs["title"] . '",';
+    $outp .= '"file":"'. $rs["submission"] . '",';
+    $outp .= '"type":"'. $rs["fileType"] . '"}';
 }
 $outp ='{"records":['.$outp.']}';
 $conn->close();

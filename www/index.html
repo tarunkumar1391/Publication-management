@@ -41,7 +41,7 @@
                 <div class="tab-content">
                     <div id="newEntry" class="tab-pane fade in active">
                         <div class="container">
-                            <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                            <form role="form" class="form-horizontal" action="../server/main.php" enctype="multipart/form-data" method="post" ng-controller="pubController">
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2">
                                         <?php echo $result; ?>
@@ -105,6 +105,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-sm-2" >Upload:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="file" class="form-control" name="fileSubmission" accept=".pdf" placeholder="Upload only pdf files" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Cancel</button>
@@ -118,7 +124,7 @@
 
                     </div>
                     <!-- Viewing-->
-                    <div id="viewEntries" class="tab-pane fade">
+                    <div id="viewEntries" class="tab-pane fade" >
                         <form class="form" role="form"> <!-- search field(incomplete) size="78"-->
 
                             <div class="form-group ">
@@ -126,7 +132,7 @@
                             </div>
 
                         </form>
-                        <div class="table-responsive">
+                        <div class="table-responsive ">
                             <table class="table table-hover" ng-controller = "pubController">
                                 <thead>
                                 <tr>
@@ -135,6 +141,8 @@
                                     <th>Firstname</th>
                                     <th>Type of Work</th>
                                     <th>Title</th>
+                                    <th>File</th>
+                                    <th>File type</th>
                                 </tr>
                                 </thead>
                                 <tbody >
@@ -144,10 +152,12 @@
                                     <td>{{entry.firstName}}</td>
                                     <td>{{entry.typeofWork}}</td>
                                     <td>{{entry.Title}}</td>
-
+                                    <td><a href="../server/uploads/{{entry.file}}" target="_blank">{{entry.file}}</a></td>
+                                    <td> {{entry.type}}</td>
                                 </tr>
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                     <!-- Modifying-->
