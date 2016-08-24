@@ -41,7 +41,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $file_size = $_FILES['fileSubmission']['size'];
     $file_type = $_FILES['fileSubmission']['type'];
     $destination="uploads/".$file;
-    echo getcwd();
     move_uploaded_file($file_loc, $destination );
 
 
