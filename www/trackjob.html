@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IKP-Publication Printing Job Tracker</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../scripts/js/angular.min.js"></script>
+    <script src="../scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
+    <script src="../scripts/js/angular-animate.min.js"></script>
+
+
+    <script src="../scripts/js/control.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="../scripts/js/bootstrap.min.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+    <div class="container-fluid" >
+        <div class="row-fluid"><!--header-->
+            <div class="page-header">
+                <h3>IKP - Publication Tracking</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid" ><!--track field-->
+                <form role="form" class="well form-search form-horizontal" action="../server/track.php" method="post" >
+                    <div class="form-group" >
+                        <label class="control-label col-lg-4" >Enter your Job Id:</label>
+                        <div class="col-lg-4 col-md-4">
+                            <input type="text" class="input-medium search-query form-control"  name="jobId" placeholder="Enter Job id. Ex: IKP-PUB-..." required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" >Submit</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="container-fluid" id="response"><!--tracker output-->
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

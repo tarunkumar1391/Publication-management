@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "ikp";
 //define variables
-$lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $file =  $file_size = $file_type = "";
+$lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $file =  $file_size = $file_type = $status= "";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,9 +14,9 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, submission, fileSize, fileType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 
-                        ?, ?, ?)");
-$stmt->bind_param("sssssssssis", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title, $file, $file_size, $file_type  );
+$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, submission, fileSize, fileType, jobId, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 
+                        ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssisss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title, $file, $file_size, $file_type, $jobid, $status);
 
 function input($data) {
     $data = trim($data);
@@ -42,6 +42,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $file_type = $_FILES['fileSubmission']['type'];
     $destination="uploads/".$file;
     move_uploaded_file($file_loc, $destination );
+    $jobid = "IKP-PUB-" . uniqid();
+    $status = "New";
 
 
 }
@@ -49,6 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 if ($stmt->execute()) {
    echo "A new entry has been created successfully!! ".'\n' ;
+    echo "<h3>Kindly make a note of your job id: $jobid</h3>";
     echo '<a href="../www/index.html">click here to return!!</a>';
 //    header("Location: ../www/index.html");
     

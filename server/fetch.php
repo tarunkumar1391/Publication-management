@@ -25,6 +25,9 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"Tp":"'. $rs["tp"] . '",';
     $outp .= '"Title":"'. $rs["title"] . '",';
     $outp .= '"file":"'. $rs["submission"] . '",';
+    $outp .= '"jobId":"'. $rs["jobId"] . '",';
+    $outp .= '"Comments":"'. $rs["Comments"] . '",';
+    $outp .= '"Status":"'. $rs["status"] . '",';
     $outp .= '"type":"'. $rs["fileType"] . '"}';
 }
 $outp ='{"records":['.$outp.']}';

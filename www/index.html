@@ -33,7 +33,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a data-toggle="tab" href="#newEntry">New Entry</a></li>
                     <li><a data-toggle="tab" href="#viewEntries">View</a></li>
-                    <li><a data-toggle="tab" href="#modifyEntries">Modify</a></li>
+                    <li><a data-toggle="tab" href="#modifyEntries">Update</a></li>
 
                 </ul>
             </div>
@@ -42,11 +42,6 @@
                     <div id="newEntry" class="tab-pane fade in active">
                         <div class="container">
                             <form role="form" class="form-horizontal" action="../server/main.php" enctype="multipart/form-data" method="post" ng-controller="pubController">
-                                <div class="form-group">
-                                    <div class="col-sm-10 col-sm-offset-2">
-                                        <?php echo $result; ?>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" >Name:</label>
                                     <div class="col-lg-8 col-md-8">
@@ -137,30 +132,32 @@
                                 <thead>
                                 <tr>
                                     <th>Sno</th>
+                                    <th>Job Id</th>
                                     <th>Lastname</th>
                                     <th>Firstname</th>
                                     <th>Type of Work</th>
                                     <th>Title</th>
                                     <th>File</th>
-                                    <th>File type</th>
+
                                 </tr>
                                 </thead>
                                 <tbody >
                                 <tr ng-repeat="entry in entries | filter: pubSearch">
                                     <td>{{entry.Sno}}</td>
+                                    <td> {{entry.jobId}}</td>
                                     <td>{{entry.lastName}}</td>
                                     <td>{{entry.firstName}}</td>
                                     <td>{{entry.typeofWork}}</td>
                                     <td>{{entry.Title}}</td>
                                     <td><a href="../server/uploads/{{entry.file}}" target="_blank">{{entry.file}}</a></td>
-                                    <td> {{entry.type}}</td>
+
                                 </tr>
                                 </tbody>
                             </table>
 
                         </div>
                     </div>
-                    <!-- Modifying-->
+                    <!-- Updating-->
                     <div id="modifyEntries" class="tab-pane fade">
                         <div class="table-responsive" ng-controller = "pubmodController">
                             <div class="form-group ">
@@ -170,20 +167,28 @@
                                 <thead>
                                 <tr>
                                     <th>Sno</th>
+                                    <th>Job Id</th>
                                     <th>Lastname </th>
                                     <th>Firstname</th>
                                     <th>Type of Work</th>
                                     <th>Title</th>
+                                    <th>File</th>
+                                    <th>Status</th>
+                                    <th>Comments</th>
                                 </tr>
                                 </thead>
                                 <tbody >
                                 <!--<tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "rowClick(entry);">-->
                                 <tr ng-repeat="entry in entries | filter: pubSearch" data-toggle="modal" data-target="#myModal" ng-click = "open('lg');">
                                     <td>{{entry.Sno}}</td>
+                                    <td>{{entry.jobId}}</td>
                                     <td>{{entry.firstName}}</td>
                                     <td>{{entry.lastName}}</td>
                                     <td>{{entry.typeofWork}}</td>
                                     <td>{{entry.Title}}</td>
+                                    <td><a href="../server/uploads/{{entry.file}}" target="_blank">{{entry.file}}</a></td>
+                                    <td>{{entry.Status}}</td>
+                                    <td>{{entry.Comments}}</td>
 
                                 </tr>
                                 </tbody>

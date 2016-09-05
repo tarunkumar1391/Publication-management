@@ -68,7 +68,7 @@ app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
         {id : "4", type : "DFG"},
         {id : "5", type : "HIC for FAIR."},
         {id : "6", type : "EMMI"},
-        {id : "7", type : "Other"},
+        {id : "7", type : "Other"}
     ];
     $scope.tp = [
         {id : "1", type : "None"},
@@ -91,7 +91,12 @@ app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
         {id : "18", type : "E3"},
         {id : "19", type : "E4"}
     ];
-
+    $scope.stats = [
+        {id:"1", stat:"New"},
+        {id:"2", stat:"In Progress"},
+        {id:"3", stat:"Completed"},
+        {id:"4", stat:"Intervention Required"}
+    ];
     $http.get('../server/fetch.php').then(function (response) {
 
         $scope.entries = response.data.records;
@@ -140,4 +145,9 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) 
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
+});
+app.controller('SearchCtrl',function($scope,$http){
+
+
+
 });
