@@ -22,10 +22,21 @@ $jobid= mysqli_real_escape_string($conn, $_POST['jobId']);
 
 $sql = "SELECT sno,jobId,fname,lname,typofwork,title,status,Comments FROM `publications` WHERE `jobId` LIKE '$jobid'";
 $result=mysqli_query($conn, $sql);
-    // check if the query returned a result
+       // check if the query returned a result
     if (!$result) {
-        echo 'There are no results for your search';
-    } else {
+        echo '<html><head><link rel="stylesheet" href="../css/bootstrap.min.css">';
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+              <script src="../scripts/js/bootstrap.min.js"></script></html></head>';
+        echo '<body><div class="container"><div class="page-header">
+                <h3>IKP - Publication Tracking</h3>
+            </div>
+        <div class="container">';
+        echo '<div class="alert alert-danger"><strong>Error! </strong>The tracking/Job id entered is invalid, Please try again with a valid id.
+             </div>';
+        echo "</div></div>";
+        echo '<div class="container"> <a href="../www/trackjob.html">click here to return!!</a></div>';
+        echo "</body></html>";
+    } else{
         // result to output the table
         echo '<html><head><link rel="stylesheet" href="../css/bootstrap.min.css">';
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -65,9 +76,9 @@ $result=mysqli_query($conn, $sql);
             echo $row['Comments'];
             echo "</td></tr>";
         }
-        echo "</div></div>";
+        echo "</div></table>";
         echo "<div class='container'> <a href=\"../www/trackjob.html\">click here to return!!</a></div>";
-        echo "</table></body></html>";
+        echo "</div></body></html>";
     }
 
     mysqli_close($conn);
