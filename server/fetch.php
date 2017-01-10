@@ -27,6 +27,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"file":"'. $rs["submission"] . '",';
     $outp .= '"jobId":"'. $rs["jobId"] . '",';
     $outp .= '"Comments":"'. $rs["Comments"] . '",';
+    $outp .= '"filePath":"'. $rs["destFilepath"] . '",';
     $outp .= '"Status":"'. $rs["status"] . '",';
     $outp .= '"type":"'. $rs["fileType"] . '"}';
 }

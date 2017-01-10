@@ -3,6 +3,8 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "ikp";
+$path = "/srv/ikp_submissions/";
+$destFilepath = "";
 //define variables
 $lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $file =  $file_size = $file_type = $status= "";
 // Create connection
@@ -14,9 +16,9 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, submission, fileSize, fileType, jobId, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 
-                        ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssisss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title, $file, $file_size, $file_type, $jobid, $status);
+$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, submission, fileSize, fileType,destFilepath, jobId, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 
+                        ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssissss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title, $file, $file_size, $file_type, $destFilepath, $jobid, $status);
 
 function input($data) {
     $data = trim($data);
@@ -36,12 +38,61 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $tp = isset($_POST['tp']) ? input($_POST['tp']) : "0";
     $title = isset($_POST['title']) ? input($_POST['title']) : "0";
 
-    $file = rand(1000,100000)."-".$_FILES['fileSubmission']['name'];
+    $file = $_FILES['fileSubmission']['name'];
     $file_loc = $_FILES['fileSubmission']['tmp_name'];
     $file_size = $_FILES['fileSubmission']['size'];
     $file_type = $_FILES['fileSubmission']['type'];
-    $destination="uploads/".$file;
-    move_uploaded_file($file_loc, $destination );
+//    $destination="uploads/".$file;
+//    move_uploaded_file($file_loc, $destination );
+
+    $year = date("Y");
+    $worktype = $typofwork;
+    $group = $foerderung;
+
+//    if(!file_exists($path.$year)){
+//        mkdir($path.$year,0777,true);
+//
+//        if(!file_exists($path.$year.'/'.$worktype)){
+//            mkdir($path.$year.'/'.$worktype,0777,true);
+//
+//            if(!file_exists($path.$year.'/'.$worktype.'/'.$group)){
+//                mkdir($path.$year.'/'.$worktype.'/'.$group,0777,true);
+//                $destFilepath = $path.$year.'/'.$worktype.'/'.$group.'/'.$file;
+//                move_uploaded_file($file_loc,$final_dest);
+//                echo "This is the path for the file: $file : $destFilepath";
+//
+//            }
+//        }
+//
+//    } else if(file_exists($path.$year)) {
+//
+//
+//
+//        if(file_exists($path.$year.'/'.$worktype)){
+//
+//            if(file_exists($path.$year.'/'.$worktype.'/'.$group)){
+//
+//                $destFilepath = $path.$year.'/'.$worktype.'/'.$group.'/'.$file;
+//                move_uploaded_file($file_loc,$destFilepath);
+//                echo "This is the path for the file: $file : $destFilepath";
+//            }
+//        }
+//
+//
+//    }
+    $fullPath = $path.$year.'/'.$worktype.'/'.$group.'/';
+
+     if(!file_exists($fullPath)) {
+         mkdir($fullPath,0777,true);
+        $destFilepath = $fullPath.$file;
+        move_uploaded_file($file_loc,$destFilepath);
+        echo "This is the path for the file: $file : <b>$destFilepath</b> <br\>";
+    } else {
+         $destFilepath = $fullPath.$file;
+         move_uploaded_file($file_loc,$destFilepath);
+         echo "This is the path for the file: $file : <b>$destFilepath</b> <br\>";
+     }
+
     $jobid = "IKP-PUB-" . uniqid();
     $status = "New";
 
@@ -50,8 +101,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 if ($stmt->execute()) {
-   echo "A new entry has been created successfully!! ".'\n' ;
+   echo "A new entry has been created successfully!! <br\>";
     echo "<h3>Kindly make a note of your job id: $jobid</h3>";
+
     echo '<a href="../www/index.html">click here to return!!</a>';
 //    header("Location: ../www/index.html");
     
