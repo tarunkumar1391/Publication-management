@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 if ($stmt->execute()) {
 
-    echo "The entry". $sno ." has been updated successfully!! ".'\n' ;
+    echo "The entry ". $sno ." has been updated successfully!! ".'\n' ;
     echo '<a href="../www/index.html">click here to return!!</a>';
 //    header("Location: ../www/index.html");
 

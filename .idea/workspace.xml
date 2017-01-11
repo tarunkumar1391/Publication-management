@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3534f778-0500-42a5-a5e3-9a9fcd556a13" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/uploads/29813-QoS02-User-Demands.pdf" afterPath="$PROJECT_DIR$/server/uploads/29813-QoS02-User-Demands.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/uploads/30197-QoS02-User-Demands.pdf" afterPath="$PROJECT_DIR$/server/uploads/30197-QoS02-User-Demands.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/uploads/4638-QoS01-Overview.pdf" afterPath="$PROJECT_DIR$/server/uploads/4638-QoS01-Overview.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/uploads/52669-QoS01-Overview.pdf" afterPath="$PROJECT_DIR$/server/uploads/52669-QoS01-Overview.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/uploads/8628-QoS01-Overview.pdf" afterPath="$PROJECT_DIR$/server/uploads/8628-QoS01-Overview.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/uploads/96319-QoS01-Overview.pdf" afterPath="$PROJECT_DIR$/server/uploads/96319-QoS01-Overview.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/fetch.php" afterPath="$PROJECT_DIR$/server/fetch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main.php" afterPath="$PROJECT_DIR$/server/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/track.php" afterPath="$PROJECT_DIR$/server/track.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/update.php" afterPath="$PROJECT_DIR$/server/update.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/trackjob.html" afterPath="$PROJECT_DIR$/www/trackjob.html" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +28,7 @@
       <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="-154">
               <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <marker date="1484062437982" expanded="true" signature="525:752" ph="INSERT INTO publications... " />
@@ -47,11 +37,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+              <folding>
+                <marker date="1484150358044" expanded="true" signature="463:604" ph="UPDATE publi... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trackjob.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/trackjob.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="31" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="185" column="36" selection-start-line="185" selection-start-column="36" selection-end-line="185" selection-end-column="36" />
+              <caret line="181" column="314" selection-start-line="181" selection-start-column="314" selection-end-line="181" selection-end-column="314" />
               <folding />
             </state>
           </provider>
@@ -60,7 +72,7 @@
       <file leaf-file-name="control.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1277">
+            <state relative-caret-position="3322">
               <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
               <folding />
             </state>
@@ -70,7 +82,7 @@
       <file leaf-file-name="fetch.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/fetch.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
+            <state relative-caret-position="638">
               <caret line="29" column="23" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="23" />
               <folding>
                 <marker date="1484062615502" expanded="true" signature="268:294" ph="SELECT * FRO... publications" />
@@ -103,11 +115,11 @@
         <option value="$PROJECT_DIR$/scripts/js/search.js" />
         <option value="$PROJECT_DIR$/scripts/js/control.js" />
         <option value="$PROJECT_DIR$/www/trackjob.html" />
-        <option value="$PROJECT_DIR$/server/update.php" />
         <option value="$PROJECT_DIR$/server/track.php" />
         <option value="$PROJECT_DIR$/server/main.php" />
         <option value="$PROJECT_DIR$/server/fetch.php" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/server/update.php" />
       </list>
     </option>
   </component>
@@ -154,6 +166,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -220,7 +233,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,12 +347,13 @@
       <workItem from="1473071843414" duration="14696000" />
       <workItem from="1473253233578" duration="3865000" />
       <workItem from="1483701935780" duration="4425000" />
-      <workItem from="1484049124030" duration="10769000" />
+      <workItem from="1484049124030" duration="11071000" />
+      <workItem from="1484141895781" duration="5093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97895000" />
+    <option name="totallyTimeSpent" value="103290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="0" />
@@ -685,13 +698,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/js/search.js" />
-    <entry file="file://$PROJECT_DIR$/server/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="52" column="8" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/pubmodmodal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="571">
@@ -706,16 +712,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/trackjob.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="31" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/fetch.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
+        <state relative-caret-position="638">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="23" />
           <folding>
             <marker date="1484062615502" expanded="true" signature="268:294" ph="SELECT * FRO... publications" />
@@ -723,19 +722,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <marker date="1484062437982" expanded="true" signature="525:752" ph="INSERT INTO publications... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1277">
+        <state relative-caret-position="3322">
           <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding />
         </state>
@@ -744,8 +733,36 @@
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="185" column="36" selection-start-line="185" selection-start-column="36" selection-end-line="185" selection-end-column="36" />
+          <caret line="181" column="314" selection-start-line="181" selection-start-column="314" selection-end-line="181" selection-end-column="314" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-154">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <marker date="1484062437982" expanded="true" signature="525:752" ph="INSERT INTO publications... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/trackjob.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          <folding>
+            <marker date="1484150358044" expanded="true" signature="463:604" ph="UPDATE publi... " />
+          </folding>
         </state>
       </provider>
     </entry>
