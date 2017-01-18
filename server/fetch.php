@@ -24,6 +24,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"Foerderung":"'. $rs["foerderung"] . '",';
     $outp .= '"Tp":"'. $rs["tp"] . '",';
     $outp .= '"Title":"'. $rs["title"] . '",';
+    $outp .= '"Email":"'. $rs["email"] . '",';
     $outp .= '"file":"'. $rs["submission"] . '",';
     $outp .= '"jobId":"'. $rs["jobId"] . '",';
     $outp .= '"Comments":"'. $rs["Comments"] . '",';

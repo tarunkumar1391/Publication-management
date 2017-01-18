@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("UPDATE publications SET lname=?, fname=?,  betreuer=?, enddate=?, typofwork=?, foerderung=?, tp=?, title=? , status=?, Comments=? WHERE sno=?");
-$stmt->bind_param("ssssssssssi", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$status,$comments,$sno);
+$stmt = $conn->prepare("UPDATE publications SET lname=?, fname=?,  betreuer=?, enddate=?, typofwork=?, foerderung=?, tp=?, title=? , email=?, status=?, Comments=? WHERE sno=?");
+$stmt->bind_param("sssssssssssi", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email,$status,$comments,$sno);
 
 function input($data) {
     $data = trim($data);
@@ -35,6 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $foerderung = isset($_POST['foerderung']) ? input($_POST['foerderung']) : "0";
     $tp = isset($_POST['tp']) ? input($_POST['tp']) : "0";
     $title = isset($_POST['title']) ? input($_POST['title']) : "0";
+    $email = isset($_POST['email']) ? input($_POST['email']) : "0";
     $status = isset($_POST['status']) ? input($_POST['status']) : "0";
     $jobid = isset($_POST['jobid']) ? input($_POST['jobid']) : "0";
     $comments = isset($_POST['comments']) ? input($_POST['comments']) : "0";

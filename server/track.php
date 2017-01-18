@@ -47,7 +47,6 @@ $result=mysqli_query($conn, $sql);
         <div class="container">';
         echo '<table class="table table-striped table-bordered table-hover">';
         echo "<tr>
-          <th>sno</th>
           <th>job id</th>
           <th>First name</th>
           <th>Last name</th>
@@ -59,8 +58,6 @@ $result=mysqli_query($conn, $sql);
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         {
             echo "<tr><td>";
-            echo $row['sno'];
-            echo "</td><td>";
             echo $row['jobId'];
             echo "</td><td>";
             echo $row['fname'];

@@ -9,3 +9,16 @@ body {
     overflow: auto;
     padding-bottom: 10%;
 }
+
+.tabpad{
+    padding-top: 4%;
+}
+.sidenavpad{
+    padding-top: 4%;
+    border-bottom: solid;
+    border-right: groove;
+    border-color: lightgrey;
+}
+.contentpad{
+    padding-top: 2%;
+}
