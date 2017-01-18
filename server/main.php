@@ -99,9 +99,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 if ($stmt->execute()) {
-   echo "A new entry has been created successfully!! <br\>";
-    echo "<h3>Kindly make a note of your job id: $jobid</h3>";
-    echo '<a href="../www/index.html">click here to return!!</a>';
+
+    echo '<html><head><link rel="stylesheet" href="../css/bootstrap.min.css">';
+    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+              <script src="../scripts/js/bootstrap.min.js"></script></html></head>';
+    echo '<body><div class="container"><div class="page-header">
+                <h3>IKP - Publication Management System</h3>
+            </div>
+        <div class="container-fluid">';
+    echo '<div  class="well form-search form-horizontal"  >';
+    echo '<div class="form-group">';
+    echo '<label class="control-label col-md-8 col-lg-8" ><h4>Kindly make a note of your job id: '. $jobid .'</h4></label>';
+    echo "</div></div>";
+    echo '<div class="container-fluid"><a href="../www/trackjob.html">click here to make a new submission!!</a></div>';
+    echo "</div></body></html>";
 
     $mail = new PHPMailer;
 
@@ -121,14 +132,14 @@ if ($stmt->execute()) {
     $mail->Subject = 'IKP: Publication submission';
     $mail->Body    = 'Hello,
                         This is to confirm that we have received your submission. Your job id is <b>'. $jobid . '</b>. Use this 
-                        job id to check the status of your submission in the link: ';
+                        job id to check the status of your submission in the link: '.'Regards,IKP';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if(!$mail->send()) {
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        echo '<h4>An email has been sent with your job id</h4>';
+        echo '<div class="container"><label>A confirmation email has been sent. In case of any discrepancy kindly contact us : haus-it@ikp.tu-darmstadt.de</label></div> ';
     }
     
 } else {

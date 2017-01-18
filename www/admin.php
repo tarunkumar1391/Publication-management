@@ -122,7 +122,7 @@ if(isset($_POST['userEmail']) && isset($_POST['userPasswd'])){
                             <div class="text-xs-center">
                                 <button type="submit" class="btn btn-primary btn-lg">Login</button>
                                 <button type="reset" class="btn btn-danger btn-lg">Reset</button>
-                            </div>  
+                            </div>
                         </form>
 
                     </div>
