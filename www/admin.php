@@ -67,7 +67,7 @@ if(isset($_POST['userEmail']) && isset($_POST['userPasswd'])){
         <!--Navbar-->
         <nav class="navbar navbar-fixed-top scrolling-navbar navbar-dark bg-primary">
             <!--Navbar Brand-->
-            <a class="navbar-brand" href="#">Institut fur kern physik- Haus IT</a>
+            <a class="navbar-brand" href="#">Institut für kern physik- Haus IT</a>
             <!--Links-->
 
         </nav>

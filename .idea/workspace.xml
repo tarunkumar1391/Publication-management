@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3534f778-0500-42a5-a5e3-9a9fcd556a13" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main.php" afterPath="$PROJECT_DIR$/server/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/admin.php" afterPath="$PROJECT_DIR$/www/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +23,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2310">
-              <caret line="124" column="34" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
+            <state relative-caret-position="396">
+              <caret line="69" column="56" selection-start-line="69" selection-start-column="56" selection-end-line="69" selection-end-column="56" />
               <folding>
-                <marker date="1484750271709" expanded="true" signature="490:557" ph="SELECT * FRO... auth" />
+                <marker date="1484754268276" expanded="true" signature="490:557" ph="SELECT * FRO... auth" />
               </folding>
             </state>
           </provider>
@@ -77,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="134" column="86" selection-start-line="134" selection-start-column="86" selection-end-line="134" selection-end-column="86" />
+            <state relative-caret-position="550">
+              <caret line="129" column="30" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
               <folding>
                 <marker date="1484753307000" expanded="true" signature="498:735" ph="INSERT INTO publications... " />
                 <marker date="1484753307000" expanded="true" signature="3910:4076" ph="..." />
@@ -133,9 +131,9 @@
         <option value="$PROJECT_DIR$/www/logout.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/www/home.php" />
-        <option value="$PROJECT_DIR$/www/admin.php" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/server/main.php" />
+        <option value="$PROJECT_DIR$/www/admin.php" />
       </list>
     </option>
   </component>
@@ -354,12 +352,12 @@
       <workItem from="1484141895781" duration="5280000" />
       <workItem from="1484224941848" duration="9353000" />
       <workItem from="1484559555189" duration="3595000" />
-      <workItem from="1484740291058" duration="9092000" />
+      <workItem from="1484740291058" duration="9848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125517000" />
+    <option name="totallyTimeSpent" value="126273000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="0" />
@@ -753,16 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="124" column="34" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
-          <folding>
-            <marker date="1484750271709" expanded="true" signature="490:557" ph="SELECT * FRO... auth" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132">
@@ -807,14 +795,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="134" column="86" selection-start-line="134" selection-start-column="86" selection-end-line="134" selection-end-column="86" />
+        <state relative-caret-position="550">
+          <caret line="129" column="30" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
           <folding>
             <marker date="1484753307000" expanded="true" signature="498:735" ph="INSERT INTO publications... " />
             <marker date="1484753307000" expanded="true" signature="3910:4076" ph="..." />
             <marker date="1484753307000" expanded="true" signature="3933:4076" ph="..." />
             <marker date="1484753307000" expanded="true" signature="3958:4038" ph="..." />
             <marker date="1484753307000" expanded="true" signature="4175:4303" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="69" column="56" selection-start-line="69" selection-start-column="56" selection-end-line="69" selection-end-column="56" />
+          <folding>
+            <marker date="1484754268276" expanded="true" signature="490:557" ph="SELECT * FRO... auth" />
           </folding>
         </state>
       </provider>
