@@ -4,7 +4,7 @@ if(isset($_POST['userEmail']) && isset($_POST['userPasswd'])){
 
     define('DB_NAME', 'ikp');
     define('DB_USER', 'root');
-    define('DB_PASSWORD', '');
+    define('DB_PASSWORD', 's4eTHE0801');
     define('DB_HOST', 'localhost');
 
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -14,7 +14,7 @@ if(isset($_POST['userEmail']) && isset($_POST['userPasswd'])){
     $uemail = $_POST['userEmail'];
     $passwd = $_POST['userPasswd'];
     $uname = substr($uemail,0, strpos($uemail, '@'));
-    $sql = "SELECT * FROM auth where email = '$uemail' and password = '$passwd'";
+    $sql = "SELECT * FROM authenticate where email = '$uemail' and password = '$passwd'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
