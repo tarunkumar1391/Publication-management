@@ -46,7 +46,26 @@ app.controller('pubController',function ($scope,$http) {
     ];
     $http.get('../server/fetch.php').then(function (response) {
         $scope.entries = response.data.records;
-        console.log($scope.entries);
+
+
+        $scope.viewby = 8;
+        $scope.totalItems = $scope.entries.length;
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = $scope.viewby;
+        $scope.maxSize = 5; //Number of pager buttons to show
+
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+        };
+
+        $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+        };
+
+        $scope.setItemsPerPage = function(num) {
+            $scope.itemsPerPage = num;
+            $scope.currentPage = 1; //reset to first paghe
+        }
     })
 });
 app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
@@ -100,6 +119,24 @@ app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
     $http.get('../server/fetch.php').then(function (response) {
 
         $scope.entries = response.data.records;
+        $scope.viewby = 8;
+        $scope.totalItems = $scope.entries.length;
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = $scope.viewby;
+        $scope.maxSize = 5; //Number of pager buttons to show
+
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+        };
+
+        $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+        };
+
+        $scope.setItemsPerPage = function(num) {
+            $scope.itemsPerPage = num;
+            $scope.currentPage = 1; //reset to first paghe
+        }
 
         $scope.animationsEnabled = true;
         $scope.open = function(size){

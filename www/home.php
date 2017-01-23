@@ -22,17 +22,17 @@ $name=$_SESSION['name'];
 
     <script src="../scripts/js/control.js"></script>
 
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="../scripts/js/jquery-3.1.1.min.js"></script>
-
     <!-- Latest compiled JavaScript -->
     <script src="../scripts/js/tether.min.js"></script>
     <script src="../scripts/js/bootstrap.min.js"></script>
-
+<!--    <script src="../scripts/js/custom.js"></script>-->
 
 
 </head>
@@ -74,15 +74,30 @@ $name=$_SESSION['name'];
 
                 <!-- Viewing-->
                 <div id="viewEntries" class="tab-pane fade in active" >
-                    <form class="form" role="form"> <!-- search field(incomplete) size="78"-->
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-lg-2 col-md-2">Filter By Status:</label>
+                            <div class="col-lg-4">
+                                <select class="form-control col-lg-4 col-md-4" name="status"  ng-model="filterByStatus" >
+                                    <option  ng-selected="true" value="">Choose a catergory...</option>
+                                    <option value="New">New</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Intervention Required">Intervention Required</option>
+                                </select>
+                            </div>
 
+                        </div>
                         <div class="form-group ">
-                            <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="pubSearch">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control "  type="text"  placeholder="Search... " ng-model="pubSearch">
+                            </div>
+
                         </div>
 
                     </form>
-                    <div class="table-responsive ">
-                        <table class="table table-hover" ng-controller = "pubController" >
+                    <div class="table-responsive " ng-controller = "pubController">
+                        <table class="table table-hover"   >
                             <thead>
                             <tr>
                                 <th>Sno</th>
@@ -95,11 +110,12 @@ $name=$_SESSION['name'];
                                 <th>Title</th>
                                 <th>File path</th>
                                 <th>Status</th>
+                                <th>Comments</th>
 
                             </tr>
                             </thead>
-                            <tbody >
-                            <tr ng-repeat="entry in entries | filter: pubSearch" ng-class="{danger: entry.Status ==='New',info: entry.Status ==='In Progress',success: entry.Status ==='Completed',warning: entry.Status ==='Intervention Required'}">
+                            <tbody id="viewingTable">
+                            <tr ng-repeat="entry in entries.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: pubSearch | filter: filterByStatus | orderBy:'-'" ng-class="{danger: entry.Status ==='New',info: entry.Status ==='In Progress',success: entry.Status ==='Completed',warning: entry.Status ==='Intervention Required'}">
                                 <td>{{entry.Sno}}</td>
                                 <td> {{entry.firstName}} {{entry.lastName}}</td>
                                 <td>{{entry.Betreuer}}</td>
@@ -110,20 +126,43 @@ $name=$_SESSION['name'];
                                 <td>{{entry.Title}}</td>
                                 <td>{{entry.filePath}}</td>
                                 <td>{{entry.Status}}</td>
+                                <td>{{entry.Comments}}</td>
 
                             </tr>
                             </tbody>
                         </table>
-
+                        <div class="container text-center">
+                            <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage">
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- Updating-->
-                <div id="modifyEntries" class="tab-pane fade">
-                    <div class="table-responsive" ng-controller = "pubmodController">
-                        <div class="form-group ">
-                            <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="pubSearch">
-                        </div>
-                        <table class="table table-hover" >
+                <div id="modifyEntries" class="tab-pane fade" ng-controller = "pubmodController">
+                    <div class="table-responsive" >
+                        <form class="form-horizontal" role="form"> <!-- search field(incomplete) size="78"-->
+                            <div class="form-group">
+                                <label class="control-label col-lg-2 col-md-2">Filter By Status:</label>
+                                <div class="col-lg-4">
+                                    <select class="form-control col-lg-4 col-md-4" name="status"  ng-model="filterByStatus" >
+                                        <option  ng-selected="true" value="">Choose a catergory...</option>
+                                        <option value="New">New</option>
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Intervention Required">Intervention Required</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group ">
+                                <div class="col-lg-12">
+                                    <input type="text" class="form-control "  type="text"  placeholder="Search... " ng-model="pubSearch">
+                                </div>
+
+                            </div>
+
+                        </form>
+                        <table class="table table-hover" id="updatingTable" >
                             <thead>
                             <tr>
                                 <th>Sno</th>
@@ -139,7 +178,7 @@ $name=$_SESSION['name'];
                             </thead>
                             <tbody >
                             <!--<tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "rowClick(entry);">-->
-                            <tr ng-repeat="entry in entries | filter: pubSearch" data-toggle="modal" data-target="#myModal" ng-click = "open('lg');" ng-class="{danger: entry.Status ==='New',info: entry.Status ==='In Progress',success: entry.Status ==='Completed',warning: entry.Status ==='Intervention Required'}">
+                            <tr ng-repeat="entry in entries.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: pubSearch |filter: filterByStatus | orderBy:'-'" data-toggle="modal" data-target="#myModal" ng-click = "open('lg');" ng-class="{danger: entry.Status ==='New',info: entry.Status ==='In Progress',success: entry.Status ==='Completed',warning: entry.Status ==='Intervention Required'}">
                                 <td>{{entry.Sno}}</td>
                                 <td>{{entry.jobId}}</td>
                                 <td>{{entry.firstName}} {{entry.lastName}}</td>
@@ -148,12 +187,15 @@ $name=$_SESSION['name'];
                                 <td>{{entry.file}}</td>
                                 <td>{{entry.filePath}}</td>
                                 <td>{{entry.Status}}</td>
-                                <td>{{entry.Comments}}</td>
+                                <td>{{entry.Comments2}}</td>
 
                             </tr>
                             </tbody>
                         </table>
-
+                        <div class="container text-center">
+                            <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage">
+                            </ul>
+                        </div>
                     </div>
 
                 </div>

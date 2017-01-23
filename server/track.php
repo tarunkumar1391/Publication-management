@@ -20,7 +20,7 @@ if (!$conn) {
 // escape the post data to prevent injection attacks
 $jobid= mysqli_real_escape_string($conn, $_POST['jobId']);
 
-$sql = "SELECT sno,jobId,fname,lname,typofwork,title,status,Comments FROM `publications` WHERE `jobId` LIKE '$jobid'";
+$sql = "SELECT sno,jobId,fname,lname,typofwork,title,status,updateComments FROM `publications` WHERE `jobId` LIKE '$jobid'";
 $result=mysqli_query($conn, $sql);
        // check if the query returned a result
     if (!$result) {
@@ -70,7 +70,7 @@ $result=mysqli_query($conn, $sql);
             echo "</td><td>";
             echo $row['status'];
             echo "</td><td>";
-            echo $row['Comments'];
+            echo $row['updateComments'];
             echo "</td></tr>";
         }
         echo "</div></table>";

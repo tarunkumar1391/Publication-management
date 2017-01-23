@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "ikp";
 //define variables
-$sno = $lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $status= $jobid = $comments="";
+$sno = $lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $status= $jobid = $updatecomments="";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("UPDATE publications SET lname=?, fname=?,  betreuer=?, enddate=?, typofwork=?, foerderung=?, tp=?, title=? , email=?, status=?, Comments=? WHERE sno=?");
-$stmt->bind_param("sssssssssssi", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email,$status,$comments,$sno);
+$stmt = $conn->prepare("UPDATE publications SET lname=?, fname=?,  betreuer=?, enddate=?, typofwork=?, foerderung=?, tp=?, title=? , email=?, status=?, updateComments=? WHERE sno=?");
+$stmt->bind_param("sssssssssssi", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email,$status,$updatecomments,$sno);
 
 function input($data) {
     $data = trim($data);
@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = isset($_POST['email']) ? input($_POST['email']) : "0";
     $status = isset($_POST['status']) ? input($_POST['status']) : "0";
     $jobid = isset($_POST['jobid']) ? input($_POST['jobid']) : "0";
-    $comments = isset($_POST['comments']) ? input($_POST['comments']) : "0";
+    $updatecomments = isset($_POST['updatecomments']) ? input($_POST['updatecomments']) : "0";
 
 
 
@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 if ($stmt->execute()) {
 
     echo "The entry ". $sno ." has been updated successfully!! ".'\n' ;
-    echo '<a href="../www/index.html">click here to return!!</a>';
+    echo '<a href="../www/home.php">click here to return!!</a>';
 //    header("Location: ../www/index.html");
 
 } else {

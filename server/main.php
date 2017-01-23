@@ -4,7 +4,7 @@ require './phpmailer/PHPMailerAutoload.php';
 
 $destFilepath = "";
 //define variables
-$lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $email = $file =  $file_size = $file_type = $status=  $jobid ="";
+$lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $email = $file =  $file_size = $file_type = $status=  $jobid = $comm="";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,9 +14,9 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, email, submission, fileSize, fileType,destFilepath, jobId, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 
+$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, email, submissionComments, submission, fileSize, fileType,destFilepath, jobId, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
                         ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssissss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email, $file, $file_size, $file_type, $destFilepath, $jobid, $status);
+$stmt->bind_param("sssssssssssissss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email, $comm, $file, $file_size, $file_type, $destFilepath, $jobid, $status);
 
 function input($data) {
     $data = trim($data);
@@ -36,6 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $tp = isset($_POST['tp']) ? input($_POST['tp']) : "0";
     $title = isset($_POST['title']) ? input($_POST['title']) : "0";
     $email = isset($_POST['email']) ? input($_POST['email']) : "0";
+    $comm = isset($_POST['comm']) ? input($_POST['comm']) : "0";
     $file = $_FILES['fileSubmission']['name'];
     $file_loc = $_FILES['fileSubmission']['tmp_name'];
     $file_size = $_FILES['fileSubmission']['size'];
