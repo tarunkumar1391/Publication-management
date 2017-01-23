@@ -14,24 +14,24 @@ $name=$_SESSION['name'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IKP-Publication Management </title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../scripts/js/angular.min.js"></script>
-    <script src="../scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
-    <script src="../scripts/js/angular-animate.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="scripts/js/angular.min.js"></script>
+    <script src="scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
+    <script src="scripts/js/angular-animate.min.js"></script>
 
 
-    <script src="../scripts/js/control.js"></script>
+    <script src="scripts/js/control.js"></script>
 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
-    <script src="../scripts/js/jquery-3.1.1.min.js"></script>
+    <script src="scripts/js/jquery-3.1.1.min.js"></script>
     <!-- Latest compiled JavaScript -->
-    <script src="../scripts/js/tether.min.js"></script>
-    <script src="../scripts/js/bootstrap.min.js"></script>
+    <script src="scripts/js/tether.min.js"></script>
+    <script src="scripts/js/bootstrap.min.js"></script>
 <!--    <script src="../scripts/js/custom.js"></script>-->
 
 
