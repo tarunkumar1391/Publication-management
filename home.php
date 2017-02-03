@@ -77,14 +77,18 @@ $name=$_SESSION['name'];
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="control-label col-lg-2 col-md-2">Filter By Status:</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-md-4">
                                 <select class="form-control col-lg-4 col-md-4" name="status"  ng-model="filterByStatus" >
-                                    <option  ng-selected="true" value="">Choose a catergory...</option>
-                                    <option value="New">New</option>
+                                    <option ng-selected="true" value="">None</option>
+                                    <option  value="New">New</option>
                                     <option value="In Progress">In Progress</option>
                                     <option value="Completed">Completed</option>
                                     <option value="Intervention Required">Intervention Required</option>
                                 </select>
+<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('New')" value="">New</label>-->
+<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('In Progress')"value="">In Progress</label>-->
+<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('Completed')"value="">Completed</label>-->
+<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('Intervention Required')"value="">Intervention Required</label>-->
                             </div>
 
                         </div>
@@ -143,11 +147,11 @@ $name=$_SESSION['name'];
                         <form class="form-horizontal" role="form"> <!-- search field(incomplete) size="78"-->
                             <div class="form-group">
                                 <label class="control-label col-lg-2 col-md-2">Filter By Status:</label>
-                                <div class="col-lg-4">
+                                <div class="col-lg-4 col-md-4">
                                     <select class="form-control col-lg-4 col-md-4" name="status"  ng-model="filterByStatus" >
-                                        <option  ng-selected="true" value="">Choose a catergory...</option>
+                                        <option  ng-selected="true" value="">None</option>
                                         <option value="New">New</option>
-                                        <option value="In Progress">In Progress</option>
+                                        <option  value="In Progress">In Progress</option>
                                         <option value="Completed">Completed</option>
                                         <option value="Intervention Required">Intervention Required</option>
                                     </select>
@@ -155,7 +159,7 @@ $name=$_SESSION['name'];
 
                             </div>
                             <div class="form-group ">
-                                <div class="col-lg-12">
+                                <div class="col-lg-10">
                                     <input type="text" class="form-control "  type="text"  placeholder="Search... " ng-model="pubSearch">
                                 </div>
 
@@ -178,26 +182,13 @@ $name=$_SESSION['name'];
                             </thead>
                             <tbody >
                             <!--<tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "rowClick(entry);">-->
-                            <tr ng-repeat="entry in entries.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: pubSearch |filter: filterByStatus | orderBy:'-'" data-toggle="modal" data-target="#myModal" ng-click = "open('lg');" ng-class="{danger: entry.Status ==='New',info: entry.Status ==='In Progress',success: entry.Status ==='Completed',warning: entry.Status ==='Intervention Required'}">
+                            <tr ng-repeat="entry in entries.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: pubSearch |filter: filterByStatus | orderBy:'-'" data-toggle="modal" data-target="#myModal"  ng-class="{danger: entry.Status ==='New',info: entry.Status ==='In Progress',success: entry.Status ==='Completed',warning: entry.Status ==='Intervention Required'}">
                                 <td>{{entry.Sno}}</td>
                                 <td>{{entry.jobId}}</td>
                                 <td>{{entry.firstName}} {{entry.lastName}}</td>
                                 <td>{{entry.typeofWork}}</td>
-                                <td>{{entry.Title}}</td>
-                                <td>{{entry.file}}</td>
-                                <td>{{entry.filePath}}</td>
-                                <td>{{entry.Status}}</td>
-                                <td>{{entry.Comments2}}</td>
-
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="container text-center">
-                            <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage">
-                            </ul>
-                        </div>
-                    </div>
-
+                                <td ng-click = "open('lg');" class="pointer">{{entry.Title}}</td>
+                                <td><a target="_blanke
                 </div>
 
             </div>
