@@ -47,7 +47,7 @@ $name=$_SESSION['name'];
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Haus-It Management</a>
+                    <a class="navbar-brand" href="#">Haus-It: Publication Management</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -85,10 +85,6 @@ $name=$_SESSION['name'];
                                     <option value="Completed">Completed</option>
                                     <option value="Intervention Required">Intervention Required</option>
                                 </select>
-<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('New')" value="">New</label>-->
-<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('In Progress')"value="">In Progress</label>-->
-<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('Completed')"value="">Completed</label>-->
-<!--                                <label class="checkbox-inline"><input type="checkbox" ng-click="includeColour('Intervention Required')"value="">Intervention Required</label>-->
                             </div>
 
                         </div>
@@ -188,7 +184,20 @@ $name=$_SESSION['name'];
                                 <td>{{entry.firstName}} {{entry.lastName}}</td>
                                 <td>{{entry.typeofWork}}</td>
                                 <td ng-click = "open('lg');" class="pointer">{{entry.Title}}</td>
-                                <td><a target="_blanke
+                                <td><a target="_blank" href="{{entry.filePath}}">{{entry.file}}</a></td>
+                                <td>{{entry.filePath}}</td>
+                                <td>{{entry.Status}}</td>
+                                <td>{{entry.Comments2}}</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="container text-center">
+                            <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage">
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
