@@ -44,7 +44,15 @@ app.controller('pubController',function ($scope,$http) {
         {id : "18", typ : "E3"},
         {id : "19", typ : "E4"}
     ];
-    $http.get('../server/fetch.php').then(function (response) {
+    $scope.status = [
+        {id:"1", stat : "New"},
+        {id:"2", stat : "In Progress"},
+        {id:"3", stat : "Completed"},
+        {id:"4", stat : "Intervention Required"}
+
+    ];
+
+    $http.get('server/fetch.php').then(function (response) {
         $scope.entries = response.data.records;
 
 
@@ -65,6 +73,26 @@ app.controller('pubController',function ($scope,$http) {
         $scope.setItemsPerPage = function(num) {
             $scope.itemsPerPage = num;
             $scope.currentPage = 1; //reset to first paghe
+        }
+
+        $scope.colourIncludes = [];
+
+        $scope.includeColour = function(status) {
+            var i = $.inArray(status, $scope.colourIncludes);
+            if (i > -1) {
+                $scope.colourIncludes.splice(i, 1);
+            } else {
+                $scope.colourIncludes.push(status);
+            }
+        }
+
+        $scope.colourFilter = function(status) {
+            if ($scope.colourIncludes.length > 0) {
+                if ($.inArray(entries.Status, $scope.colourIncludes) < 0)
+                    return;
+            }
+
+            return status;
         }
     })
 });
@@ -116,7 +144,7 @@ app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
         {id:"3", stat:"Completed"},
         {id:"4", stat:"Intervention Required"}
     ];
-    $http.get('../server/fetch.php').then(function (response) {
+    $http.get('server/fetch.php').then(function (response) {
 
         $scope.entries = response.data.records;
         $scope.viewby = 8;
@@ -182,9 +210,4 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) 
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
-});
-app.controller('SearchCtrl',function($scope,$http){
-
-
-
 });

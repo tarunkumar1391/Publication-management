@@ -41,44 +41,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $file_loc = $_FILES['fileSubmission']['tmp_name'];
     $file_size = $_FILES['fileSubmission']['size'];
     $file_type = $_FILES['fileSubmission']['type'];
-//    $destination="uploads/".$file;
-//    move_uploaded_file($file_loc, $destination );
+
 
     $year = date("Y");
     $worktype = $typofwork;
     $group = $foerderung;
 
-//    if(!file_exists($path.$year)){
-//        mkdir($path.$year,0777,true);
-//
-//        if(!file_exists($path.$year.'/'.$worktype)){
-//            mkdir($path.$year.'/'.$worktype,0777,true);
-//
-//            if(!file_exists($path.$year.'/'.$worktype.'/'.$group)){
-//                mkdir($path.$year.'/'.$worktype.'/'.$group,0777,true);
-//                $destFilepath = $path.$year.'/'.$worktype.'/'.$group.'/'.$file;
-//                move_uploaded_file($file_loc,$final_dest);
-//                echo "This is the path for the file: $file : $destFilepath";
-//
-//            }
-//        }
-//
-//    } else if(file_exists($path.$year)) {
-//
-//
-//
-//        if(file_exists($path.$year.'/'.$worktype)){
-//
-//            if(file_exists($path.$year.'/'.$worktype.'/'.$group)){
-//
-//                $destFilepath = $path.$year.'/'.$worktype.'/'.$group.'/'.$file;
-//                move_uploaded_file($file_loc,$destFilepath);
-//                echo "This is the path for the file: $file : $destFilepath";
-//            }
-//        }
-//
-//
-//    }
+
     $fullPath = $path.$year.'/'.$worktype.'/'.$group.'/';
 
      if(!file_exists($fullPath)) {
@@ -112,7 +81,9 @@ if ($stmt->execute()) {
     echo '<div class="form-group">';
     echo '<label class="control-label col-md-8 col-lg-8" ><h4>Kindly make a note of your job id: '. $jobid .'</h4></label>';
     echo "</div></div>";
-    echo '<div class="container-fluid"><a href="../www/trackjob.html">click here to make a new submission!!</a></div>';
+    echo '<div class="container-fluid"><a href="../index.html">click here to make a new submission!!</a></div>';
+    echo '<div class="container-fluid">click <a href="../trackjob.html">here</a> to track the status of your submission or save this
+            link : thesis-submit/trackjob.html to check the status in future.</div>';
     echo "</div></body></html>";
 
     $mail = new PHPMailer;
@@ -122,18 +93,18 @@ if ($stmt->execute()) {
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'linix.ikp.physik.tu-darmstadt.de';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'tramdas';                 // SMTP username
-    $mail->Password = 'tarun_1391';                           // SMTP password
+    $mail->Username = 'pubmanagement';                 // SMTP username
+    $mail->Password = 's4ePUB0801';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->setFrom('tramdas@ikp.tu-darmstadt.de', 'Tarun Kumar');
+    $mail->setFrom('pubmanagement@ikp.tu-darmstadt.de', 'Admin');
     $mail->addAddress($email);
 
     $mail->Subject = 'IKP: Publication submission';
-    $mail->Body    = 'Hello,
+    $mail->Body    = 'Hello,<br>
                         This is to confirm that we have received your submission. Your job id is <b>'. $jobid . '</b>. Use this 
-                        job id to check the status of your submission in the link: '.'Regards,IKP';
+                        job id to check the status of your submission in the link: <a src="http://thesis-submit/trackjob.html">http://thesis-submit/trackjob.html</a> '.'<br><br>Regards,<br>IKP';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if(!$mail->send()) {

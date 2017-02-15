@@ -9,7 +9,7 @@ if (isset($_POST['jobId'])) {
 
 define('DB_NAME', 'ikp');
 define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 's4eTHE0801');
 define('DB_HOST', 'localhost');
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -34,7 +34,7 @@ $result=mysqli_query($conn, $sql);
         echo '<div class="alert alert-danger"><strong>Error! </strong>The tracking/Job id entered is invalid, Please try again with a valid id.
              </div>';
         echo "</div></div>";
-        echo '<div class="container"> <a href="../www/trackjob.html">click here to return!!</a></div>';
+        echo '<div class="container"> <a href="../trackjob.html">click here to return!!</a></div>';
         echo "</body></html>";
     } else{
         // result to output the table
@@ -74,7 +74,7 @@ $result=mysqli_query($conn, $sql);
             echo "</td></tr>";
         }
         echo "</div></table>";
-        echo "<div class='container'> <a href=\"../www/trackjob.html\">click here to return!!</a></div>";
+        echo "<a href='../trackjob.html'>click here to track a new submission!!</a></div>";
         echo "</div></body></html>";
     }
 

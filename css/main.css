@@ -22,3 +22,6 @@ body {
 .contentpad{
     padding-top: 2%;
 }
+.pointer{
+    cursor: pointer;
+}
