@@ -8,7 +8,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$conn = new mysqli("localhost", "root", "", "ikp");
+$conn = new mysqli("localhost", "ikppubadmin", "s4ePUB0801", "ikp");
 
 $result = $conn->query("SELECT * FROM publications");
 
@@ -29,6 +29,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"Comments2":"'. $rs["updateComments"] . '",';
     $outp .= '"file":"'. $rs["submission"] . '",';
     $outp .= '"jobId":"'. $rs["jobId"] . '",';
+    $outp .= '"fqpn":"'. $rs["fqpn"] . '",';
     $outp .= '"filePath":"'. $rs["destFilepath"] . '",';
     $outp .= '"Status":"'. $rs["status"] . '",';
     $outp .= '"type":"'. $rs["fileType"] . '"}';

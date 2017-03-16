@@ -6,7 +6,7 @@
  * Time: 2:00 PM
  */
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "ikppubadmin";
+$password = "s4ePUB0801";
 $dbname = "ikp";
-$path = "/srv/ikp_submissions/";
+$path = "/srv/ikpsubmission/";

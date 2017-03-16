@@ -14,9 +14,9 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, email, submissionComments, submission, fileSize, fileType,destFilepath, jobId, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+$stmt = $conn->prepare("INSERT INTO publications (lname, fname, betreuer, enddate, typofwork, foerderung, tp, title, email, submissionComments, submission, fileSize, fileType,fqpn,destFilepath, jobId, status) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
                         ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssissss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email, $comm, $file, $file_size, $file_type, $destFilepath, $jobid, $status);
+$stmt->bind_param("sssssssssssisssss", $lname, $fname, $betreuer, $enddate, $typofwork, $foerderung, $tp, $title,$email, $comm, $file, $file_size, $file_type,$fqpn, $destFilepath, $jobid, $status);
 
 function input($data) {
     $data = trim($data);
@@ -53,10 +53,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
      if(!file_exists($fullPath)) {
          mkdir($fullPath,0777,true);
         $destFilepath = $fullPath.$file;
+        $fqpn = 'http://thesis-submit.ikp.physik.tu-darmstadt.de/download/'. $year .'/'. $worktype . '/'. $group .'/'.$file ;
         move_uploaded_file($file_loc,$destFilepath);
 
     } else {
          $destFilepath = $fullPath.$file;
+         $fqpn = 'http://thesis-submit.ikp.physik.tu-darmstadt.de/download/'. $year .'/'. $worktype . '/'. $group .'/'.$file ;
          move_uploaded_file($file_loc,$destFilepath);
 
      }

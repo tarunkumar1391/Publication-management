@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "ikppubadmin";
+$password = "s4ePUB0801";
 $dbname = "ikp";
 //define variables
 $sno = $lname = $fname = $betreuer = $enddate = $typofwork = $foerderung = $tp = $title = $status= $jobid = $updatecomments="";
