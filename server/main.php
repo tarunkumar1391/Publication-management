@@ -49,16 +49,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     $fullPath = $path.$year.'/'.$worktype.'/'.$group.'/';
-
+    $pathforjabref = 'http://thesis-submit.ikp.physik.tu-darmstadt.de/download/'. $year .'/'. $worktype . '/'. $group .'/';
      if(!file_exists($fullPath)) {
          mkdir($fullPath,0777,true);
         $destFilepath = $fullPath.$file;
-        $fqpn = 'http://thesis-submit.ikp.physik.tu-darmstadt.de/download/'. $year .'/'. $worktype . '/'. $group .'/'.$file ;
+        $fqpn = $pathforjabref.$file ;
         move_uploaded_file($file_loc,$destFilepath);
 
     } else {
          $destFilepath = $fullPath.$file;
-         $fqpn = 'http://thesis-submit.ikp.physik.tu-darmstadt.de/download/'. $year .'/'. $worktype . '/'. $group .'/'.$file ;
+         $fqpn =  $pathforjabref.$file ;
          move_uploaded_file($file_loc,$destFilepath);
 
      }
