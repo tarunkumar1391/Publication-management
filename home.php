@@ -108,7 +108,7 @@ $name=$_SESSION['name'];
                                 <th>Förderung</th>
                                 <th>TP</th>
                                 <th>Title</th>
-                                <th>File path</th>
+                                <th>File path for Jabref</th>
                                 <th>Status</th>
                                 <th>Comments</th>
 
@@ -124,7 +124,7 @@ $name=$_SESSION['name'];
                                 <td>{{entry.Foerderung}}</td>
                                 <td>{{entry.Tp}}</td>
                                 <td>{{entry.Title}}</td>
-                                <td>{{entry.filePath}}</td>
+                                <td>{{entry.fqpn}}</td>
                                 <td>{{entry.Status}}</td>
                                 <td>{{entry.Comments}}</td>
 
@@ -171,7 +171,7 @@ $name=$_SESSION['name'];
                                 <th>Type of Work</th>
                                 <th>Title</th>
                                 <th>File</th>
-                                <th>File path</th>
+                                <th>Actual file path</th>
                                 <th>Status</th>
                                 <th>Comments</th>
                             </tr>

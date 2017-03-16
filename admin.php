@@ -3,8 +3,8 @@
 if(isset($_POST['userEmail']) && isset($_POST['userPasswd'])){
 
     define('DB_NAME', 'ikp');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', 's4eTHE0801');
+    define('DB_USER', 'ikppubadmin');
+    define('DB_PASSWORD', 's4ePUB0801');
     define('DB_HOST', 'localhost');
 
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
