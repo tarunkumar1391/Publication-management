@@ -184,7 +184,7 @@ $name=$_SESSION['name'];
                                 <td>{{entry.firstName}} {{entry.lastName}}</td>
                                 <td>{{entry.typeofWork}}</td>
                                 <td ng-click = "open('lg');" class="pointer">{{entry.Title}}</td>
-                                <td><a target="_blank" href="{{entry.filePath}}">{{entry.file}}</a></td>
+                                <td><a target="_blank" href="{{entry.fqpn}}">{{entry.file}}</a></td>
                                 <td>{{entry.filePath}}</td>
                                 <td>{{entry.Status}}</td>
                                 <td>{{entry.Comments2}}</td>
