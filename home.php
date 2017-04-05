@@ -18,7 +18,7 @@ $name=$_SESSION['name'];
     <script src="scripts/js/angular.min.js"></script>
     <script src="scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
     <script src="scripts/js/angular-animate.min.js"></script>
-
+    
 
     <script src="scripts/js/control.js"></script>
 
